@@ -1,0 +1,22 @@
+{
+  "name": "employee-manager",
+  "version": "1.0.0",
+  "author": "Pom4H",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  },
+  "config": {
+    "nuxt": {
+      "host": "127.0.0.1",
+      "port": "8000"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7",
+    "nuxt": "^1.4.2"
+  }
+}
