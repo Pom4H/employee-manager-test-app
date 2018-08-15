@@ -16,6 +16,14 @@ body, html {
 	font-family: sans-serif;
 }
 
+h1 {
+	font-weight: 300;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .container {
 	padding: 20px;
 }
