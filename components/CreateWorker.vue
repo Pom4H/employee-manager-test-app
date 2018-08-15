@@ -34,8 +34,12 @@ export default {
         }
     },
     methods: {
-        async onSubmit() {
-            await axios.post('/api/workers', this.form)
+        async onSubmit(e) {
+            e.preventDefault()
+            let res = await axios.post('/api/workers', this.form)
+            if (res.status === 200) {
+                this.$router.push({ name: 'workers', params: { message: `Сотрудник - ${res.data.name} успешно добавлен!` }})
+            }
         },
         async getCompanies() {
             let { data } = await axios.get('/api/companies/all')

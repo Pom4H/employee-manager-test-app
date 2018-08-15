@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div class="message" v-if="$route.params">{{ $route.params.message }}</div>
         <div class="table__menu">
             
             <input v-model="search" type="text" placeholder="Поиск" size="40">
@@ -80,6 +81,10 @@ export default {
 .container {
     display: flex;
     flex-direction: column;
+}
+
+.message {
+    color: #a4e247;
 }
 
 .table__menu input {

@@ -21,8 +21,12 @@ export default {
         }
     },
     methods: {
-        async onSubmit() {
-            await axios.post('/api/companies', this.form)
+        async onSubmit(e) {
+            e.preventDefault()
+            let res = await axios.post('/api/companies', this.form)
+            if (res.status === 200) {
+                this.$router.push({ name: 'companies', params: { message: `Компания - ${res.data.name} успешно добавлена!` }})
+            }
         }
     }
 }
