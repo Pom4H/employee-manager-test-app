@@ -11,5 +11,6 @@ module.exports = {
 
   getWorkerByID: (id) => Workers.findById(id).exec(),
   getWorkersByCompany: (company_id) => Workers.find({ 'company._id': company_id }).exec(),
-  getWorkersCount: () => Workers.estimatedDocumentCount()
+  getWorkersCount: () => Workers.estimatedDocumentCount(),
+  deleteWorkerByID: (id) => Workers.remove({ _id: id })
 }

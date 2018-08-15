@@ -2,10 +2,11 @@ const { Router } = require('express')
 const {
     addCompany,
     editCompany,
-    getAllCompanies, 
-    getCompaniesPage, 
+    getAllCompanies,
+    getCompaniesPage,
     getCompanyByID,
-    getCompaniesCount
+    getCompaniesCount,
+    deleteCompanyByID
 } = require('../models/companies')
 const route = Router()
 
@@ -60,4 +61,11 @@ route.put('/edit/:id', (req, res, next) => {
         .catch(next)
 })
 
+route.delete('/delete/:id', (req, res, next) => {
+    deleteCompanyByID(req.params.id)
+        .then(data => {
+            res.send(data)
+        })
+        .catch(next)
+})
 module.exports = route

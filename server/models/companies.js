@@ -10,5 +10,6 @@ module.exports = {
         .skip(limit * (page - 1))
         .limit(parseInt(limit))
         .exec(),
-    getCompaniesCount: () => Companies.estimatedDocumentCount()
+    getCompaniesCount: () => Companies.estimatedDocumentCount(),
+    deleteCompanyByID: (id) => Companies.remove({ _id: id })
 }

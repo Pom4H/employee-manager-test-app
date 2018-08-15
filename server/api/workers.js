@@ -4,7 +4,8 @@ const {
     getWorkersPage, 
     getWorkerByID, 
     getWorkersByCompany,
-    getWorkersCount
+    getWorkersCount,
+    deleteWorkerByID
 } = require('../models/workers')
 
 const route = Router()
@@ -45,6 +46,14 @@ route.get('/company/:id', (req, res, next) => {
 route.post('/', (req, res, next) => {
     const { body } = req
     addWorker(body)
+        .then(data => {
+            res.send(data)
+        })
+        .catch(next)
+})
+
+route.delete('/delete/:id', (req, res, next) => {
+    deleteWorkerByID(req.params.id)
         .then(data => {
             res.send(data)
         })

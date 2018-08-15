@@ -16,7 +16,7 @@
                     <th colspan="3"><nuxt-link :to="company._id ? '/companies/' + company._id : '#'">{{ company.name ? company.name : '-'}}</nuxt-link></th>
                     <td>
                         <nuxt-link :to="'/companies/edit/' + company._id"><button>Редактировать</button></nuxt-link>
-                        <button>Удалить</button>
+                        <button @click="deleteCompany(company._id)">Удалить</button>
                     </td>
                 </tr>
             </tbody>
@@ -55,6 +55,10 @@ export default {
         async getCompanies() {
             let { data } = await axios.get(`/api/companies?limit=${this.limit}&page=${this.page}`)
             this.companies = data
+        },
+        async deleteCompany(id) {
+            await axios.delete(`/api/companies/delete/${id}`)
+            this.getCompanies()
         },
         formatDate(date) {
             return new Date(date).toLocaleDateString()

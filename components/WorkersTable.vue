@@ -21,7 +21,7 @@
                     <td><nuxt-link :to="worker.company ? '/companies/' + worker.company._id : '#'">{{ worker.company ? worker.company.name : '-'}}</nuxt-link></td>
                     <td>
                         <button>Редактировать</button>
-                        <button>Удалить</button>
+                        <button @click="deleteWorker(worker._id)">Удалить</button>
                     </td>
                 </tr>
             </tbody>
@@ -60,6 +60,10 @@ export default {
         async getWorkers() {
             let { data } = await axios.get(`/api/workers?limit=${this.limit}&page=${this.page}`)
             this.workers = data
+        },
+        async deleteWorker(id) {
+            await axios.delete(`/api/workers/delete/${id}`)
+            this.getWorkers()
         },
         formatDate(date) {
             return new Date(date).toLocaleDateString()
