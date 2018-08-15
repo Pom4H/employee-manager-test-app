@@ -10,5 +10,5 @@ module.exports = {
         .skip(limit * (page - 1))
         .limit(parseInt(limit))
         .exec(),
-    getCompaniesCount: () => Companies.find().exec() // count() - 'Cast to ObjectId failed for value "count" at path "_id" for model "Companies"'
+    getCompaniesCount: () => Companies.estimatedDocumentCount()
 }

@@ -9,6 +9,14 @@ const {
 } = require('../models/companies')
 const route = Router()
 
+route.get('/count', (req, res, next) => {
+    getCompaniesCount()
+        .then((count) => {
+            res.send(count.toString())
+        })
+        .catch(next)
+})
+
 route.get('/all', (req, res, next) => {
     getAllCompanies()
         .then((data) => {
@@ -48,14 +56,6 @@ route.put('/edit/:id', (req, res, next) => {
     editCompany(req.params.id, body)
         .then(data => {
             res.send(data)
-        })
-        .catch(next)
-})
-
-route.get('/count', (req, res, next) => {
-    getCompaniesCount()
-        .then(data => {
-            res.send(data.length)
         })
         .catch(next)
 })
