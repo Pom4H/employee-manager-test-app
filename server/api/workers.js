@@ -3,7 +3,8 @@ const {
     addWorker, 
     getWorkersPage, 
     getWorkerByID, 
-    getWorkersByCompany 
+    getWorkersByCompany,
+    getWorkersCount
 } = require('../models/workers')
 
 const route = Router()
@@ -38,6 +39,14 @@ route.post('/', (req, res, next) => {
     addWorker(body)
     .then(data => {
         res.send(data)
+    })
+    .catch(next)
+})
+
+route.get('/count', (req, res, next) => {
+    getWorkersCount()
+    .then(data => {
+        res.send(data.length)
     })
     .catch(next)
 })

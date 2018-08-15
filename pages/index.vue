@@ -6,7 +6,7 @@
             </div>
             <div class="total">
                 <nuxt-link to="/workers">
-                    <h1>Всего сотрудников:</h1>
+                    <h1>Всего сотрудников: {{ workersCount }}</h1>
                 </nuxt-link>
             </div>
         </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="total">
                 <nuxt-link to="/companies">
-                    <h1>Всего компаний:</h1>
+                    <h1>Всего компаний: {{ companiesCount }}</h1>
                 </nuxt-link>
             </div>
         </div>

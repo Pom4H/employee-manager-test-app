@@ -9,5 +9,6 @@ module.exports = {
         .find()
         .skip(limit * (page - 1))
         .limit(parseInt(limit))
-        .exec()
+        .exec(),
+    getCompaniesCount: () => Companies.find().exec() // count() - 'Cast to ObjectId failed for value "count" at path "_id" for model "Companies"'
 }

@@ -10,5 +10,6 @@ module.exports = {
     .exec(),
 
   getWorkerByID: (id) => Workers.findById(id).exec(),
-  getWorkersByCompany: (company_id) => Workers.find({ 'company._id': company_id }).exec()
+  getWorkersByCompany: (company_id) => Workers.find({ 'company._id': company_id }).exec(),
+  getWorkersCount: () => Workers.find().exec() // count() - 'Cast to ObjectId failed for value "count" at path "_id" for model "Workers"'
 }
